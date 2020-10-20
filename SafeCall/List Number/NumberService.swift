@@ -47,13 +47,13 @@ struct Country: Codable {
 }
 
 struct Ambulance: Codable {
-    var All: [String]
+    var All: [String?]
 }
 
 struct Fire: Codable {
-    var All: [String]
+    var All: [String?]
 }
 
 struct Police: Codable {
-    var All: [String]
+    var All: [String?]
 }

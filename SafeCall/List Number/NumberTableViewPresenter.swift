@@ -28,7 +28,7 @@ extension NumberTableViewPresenter: NumberTableViewPresenterProtocol {
         service.fetchNumbersList(file: "listPhone", suscriber: subject).sink { (error) in
             print(error)
         } receiveValue: { (numberList) in
-            
+            print(numberList)
         }
     }
     
