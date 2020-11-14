@@ -15,6 +15,7 @@ final class NumberTableViewController: UITableViewController {
     private let presenter: NumberTableViewPresenterProtocol
     @Published private var listNumbers: [Numbers]? {
         didSet {
+            // To improve that I should try to do the assign in the cell directly on the label.text
             self.tableView.reloadData()
         }
     }
@@ -30,10 +31,11 @@ final class NumberTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.register(NumbersTableViewCell.self, forCellReuseIdentifier: "CellID")
 
         presenter.attach(VC: self)
         presenter.viewDidLoad()
-        
         
     }
 
@@ -47,12 +49,8 @@ final class NumberTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        
-        if let tmp = listNumbers {
-            cell.textLabel?.text = tmp[indexPath.row].Country.Name
-        }
-        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CellID") as? NumbersTableViewCell else { return UITableViewCell() }
+        presenter.setUp(cell: cell, index: indexPath.row)
         return cell
     }
 }

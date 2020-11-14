@@ -18,6 +18,8 @@
 		2DA8DBDD253F473A00AA8000 /* NumberTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DA8DBDB253F473A00AA8000 /* NumberTableViewController.xib */; };
 		2DA8DBE5253F487700AA8000 /* listPhone.json in Resources */ = {isa = PBXBuildFile; fileRef = 2DA8DBE4253F487700AA8000 /* listPhone.json */; };
 		2DA8DBEA253F491800AA8000 /* NumberService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA8DBE9253F491800AA8000 /* NumberService.swift */; };
+		2DB8A9A2256040FA00118B9E /* NumbersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB8A9A0256040FA00118B9E /* NumbersTableViewCell.swift */; };
+		2DB8A9A3256040FA00118B9E /* NumbersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DB8A9A1256040FA00118B9E /* NumbersTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		2DA8DBDB253F473A00AA8000 /* NumberTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NumberTableViewController.xib; sourceTree = "<group>"; };
 		2DA8DBE4253F487700AA8000 /* listPhone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = listPhone.json; sourceTree = "<group>"; };
 		2DA8DBE9253F491800AA8000 /* NumberService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberService.swift; sourceTree = "<group>"; };
+		2DB8A9A0256040FA00118B9E /* NumbersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersTableViewCell.swift; sourceTree = "<group>"; };
+		2DB8A9A1256040FA00118B9E /* NumbersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NumbersTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,10 +143,20 @@
 			children = (
 				2DA8DBDA253F473A00AA8000 /* NumberTableViewController.swift */,
 				2DA8DBD2253F472C00AA8000 /* NumberTableViewPresenter.swift */,
+				2DB8A9A72560415A00118B9E /* Cell */,
 				2DA8DBE9253F491800AA8000 /* NumberService.swift */,
 				2DA8DBDB253F473A00AA8000 /* NumberTableViewController.xib */,
 			);
 			path = "List Number";
+			sourceTree = "<group>";
+		};
+		2DB8A9A72560415A00118B9E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2DB8A9A0256040FA00118B9E /* NumbersTableViewCell.swift */,
+				2DB8A9A1256040FA00118B9E /* NumbersTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +266,7 @@
 				2DA8DBA8253F465A00AA8000 /* LaunchScreen.storyboard in Resources */,
 				2DA8DBA5253F465A00AA8000 /* Assets.xcassets in Resources */,
 				2DA8DBDD253F473A00AA8000 /* NumberTableViewController.xib in Resources */,
+				2DB8A9A3256040FA00118B9E /* NumbersTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +295,7 @@
 				2DA8DBEA253F491800AA8000 /* NumberService.swift in Sources */,
 				2DA8DB9C253F465000AA8000 /* AppDelegate.swift in Sources */,
 				2DA8DB9E253F465000AA8000 /* SceneDelegate.swift in Sources */,
+				2DB8A9A2256040FA00118B9E /* NumbersTableViewCell.swift in Sources */,
 				2DA8DBDC253F473A00AA8000 /* NumberTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

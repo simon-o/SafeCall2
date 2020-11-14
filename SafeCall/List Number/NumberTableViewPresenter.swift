@@ -11,6 +11,7 @@ import Combine
 protocol NumberTableViewPresenterProtocol {
     func attach(VC: NumberTableViewControllerProtocol)
     func viewDidLoad()
+    func setUp(cell: NumbersTableViewCellProtocol, index: Int)
 }
 
 final class NumberTableViewPresenter {
@@ -26,6 +27,12 @@ final class NumberTableViewPresenter {
 }
 
 extension NumberTableViewPresenter: NumberTableViewPresenterProtocol {
+    func setUp(cell: NumbersTableViewCellProtocol, index: Int) {
+        if let list = listNumbers {
+            cell.set(countryName: list[index].Country.Name)
+        }
+    }
+    
     func viewDidLoad() {
         
         let anyCancellable = subject.sink(receiveValue: { value in
