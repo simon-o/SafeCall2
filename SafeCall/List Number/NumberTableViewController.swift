@@ -8,7 +8,7 @@
 import UIKit
 
 protocol NumberTableViewControllerProtocol: NSObject {
-    
+    func setListNumber(list: [Numbers])
 }
 
 final class NumberTableViewController: UITableViewController {
@@ -42,5 +42,9 @@ final class NumberTableViewController: UITableViewController {
 }
 
 extension NumberTableViewController: NumberTableViewControllerProtocol {
+    func setListNumber(list: [Numbers]) {
+        listNumbers = list
+    }
+    
     
 }
