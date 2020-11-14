@@ -16,6 +16,8 @@ final class NumberTableViewController: UITableViewController {
     @Published private var listNumbers: [Numbers]? {
         didSet {
             // To improve that I should try to do the assign in the cell directly on the label.text
+            //https://swifthowto.blogspot.com/2019/11/use-swift-combine-to-load.html
+            // work only for thing that needs to be downloaded after the list because we need the numbers of product to know the number of cell to diplay first 
             self.tableView.reloadData()
         }
     }
