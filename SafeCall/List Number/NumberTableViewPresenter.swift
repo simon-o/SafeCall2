@@ -5,6 +5,7 @@
 //  Created by Antoine Simon on 20/10/2020.
 //
 
+import Foundation
 import Combine
 
 protocol NumberTableViewPresenterProtocol {
@@ -15,13 +16,7 @@ protocol NumberTableViewPresenterProtocol {
 final class NumberTableViewPresenter {
     private let service: NumberServiceProtocol
     private weak var vc: NumberTableViewControllerProtocol?
-    private var listNumbers: [Numbers]? {
-        didSet {
-            if let tmpList = listNumbers{
-                vc?.setListNumber(list: tmpList)
-            }
-        }
-    }
+    @Published private var listNumbers: [Numbers]?
     
     private let subject = PassthroughSubject<[Numbers], Never>()
     
@@ -32,9 +27,10 @@ final class NumberTableViewPresenter {
 
 extension NumberTableViewPresenter: NumberTableViewPresenterProtocol {
     func viewDidLoad() {
-    
+        
         let anyCancellable = subject.sink(receiveValue: { value in
-          print("Received value: \(value)")
+            self.listNumbers = value
+            self.vc?.setListNumber(list: value)
         })
         
         service.fetchNumbersList(file: "listPhone", subject: subject)

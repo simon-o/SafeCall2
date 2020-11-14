@@ -13,7 +13,11 @@ protocol NumberTableViewControllerProtocol: NSObject {
 
 final class NumberTableViewController: UITableViewController {
     private let presenter: NumberTableViewPresenterProtocol
-    @Published private var listNumbers: [Numbers]?
+    @Published private var listNumbers: [Numbers]? {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     
     init(presenter: NumberTableViewPresenterProtocol) {
         self.presenter = presenter
@@ -29,6 +33,8 @@ final class NumberTableViewController: UITableViewController {
 
         presenter.attach(VC: self)
         presenter.viewDidLoad()
+        
+        
     }
 
     // MARK: - Table view data source
@@ -37,7 +43,17 @@ final class NumberTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return listNumbers?.count ?? 0
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        
+        if let tmp = listNumbers {
+            cell.textLabel?.text = tmp[indexPath.row].Country.Name
+        }
+        
+        return cell
     }
 }
 
@@ -45,6 +61,4 @@ extension NumberTableViewController: NumberTableViewControllerProtocol {
     func setListNumber(list: [Numbers]) {
         listNumbers = list
     }
-    
-    
 }
