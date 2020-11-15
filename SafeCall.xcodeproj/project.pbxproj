@@ -18,6 +18,9 @@
 		2DA8DBDD253F473A00AA8000 /* NumberTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DA8DBDB253F473A00AA8000 /* NumberTableViewController.xib */; };
 		2DA8DBE5253F487700AA8000 /* listPhone.json in Resources */ = {isa = PBXBuildFile; fileRef = 2DA8DBE4253F487700AA8000 /* listPhone.json */; };
 		2DA8DBEA253F491800AA8000 /* NumberService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA8DBE9253F491800AA8000 /* NumberService.swift */; };
+		2DAF45122561871700D8584A /* EmergencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAF45102561871700D8584A /* EmergencyViewController.swift */; };
+		2DAF45132561871700D8584A /* EmergencyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DAF45112561871700D8584A /* EmergencyViewController.xib */; };
+		2DAF451F2561A24D00D8584A /* HalfSizePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAF451E2561A24D00D8584A /* HalfSizePresentationController.swift */; };
 		2DB8A9A2256040FA00118B9E /* NumbersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB8A9A0256040FA00118B9E /* NumbersTableViewCell.swift */; };
 		2DB8A9A3256040FA00118B9E /* NumbersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DB8A9A1256040FA00118B9E /* NumbersTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -57,6 +60,9 @@
 		2DA8DBDB253F473A00AA8000 /* NumberTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NumberTableViewController.xib; sourceTree = "<group>"; };
 		2DA8DBE4253F487700AA8000 /* listPhone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = listPhone.json; sourceTree = "<group>"; };
 		2DA8DBE9253F491800AA8000 /* NumberService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberService.swift; sourceTree = "<group>"; };
+		2DAF45102561871700D8584A /* EmergencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyViewController.swift; sourceTree = "<group>"; };
+		2DAF45112561871700D8584A /* EmergencyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmergencyViewController.xib; sourceTree = "<group>"; };
+		2DAF451E2561A24D00D8584A /* HalfSizePresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfSizePresentationController.swift; sourceTree = "<group>"; };
 		2DB8A9A0256040FA00118B9E /* NumbersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersTableViewCell.swift; sourceTree = "<group>"; };
 		2DB8A9A1256040FA00118B9E /* NumbersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NumbersTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +118,7 @@
 				2DA8DB9B253F465000AA8000 /* AppDelegate.swift */,
 				2DA8DB9D253F465000AA8000 /* SceneDelegate.swift */,
 				2DA8DBD1253F470000AA8000 /* List Number */,
+				2DAF4517256187B500D8584A /* Emergency view */,
 				2DA8DBA4253F465A00AA8000 /* Assets.xcassets */,
 				2DA8DBE4253F487700AA8000 /* listPhone.json */,
 				2DA8DBA6253F465A00AA8000 /* LaunchScreen.storyboard */,
@@ -148,6 +155,16 @@
 				2DA8DBDB253F473A00AA8000 /* NumberTableViewController.xib */,
 			);
 			path = "List Number";
+			sourceTree = "<group>";
+		};
+		2DAF4517256187B500D8584A /* Emergency view */ = {
+			isa = PBXGroup;
+			children = (
+				2DAF45102561871700D8584A /* EmergencyViewController.swift */,
+				2DAF45112561871700D8584A /* EmergencyViewController.xib */,
+				2DAF451E2561A24D00D8584A /* HalfSizePresentationController.swift */,
+			);
+			path = "Emergency view";
 			sourceTree = "<group>";
 		};
 		2DB8A9A72560415A00118B9E /* Cell */ = {
@@ -266,6 +283,7 @@
 				2DA8DBA8253F465A00AA8000 /* LaunchScreen.storyboard in Resources */,
 				2DA8DBA5253F465A00AA8000 /* Assets.xcassets in Resources */,
 				2DA8DBDD253F473A00AA8000 /* NumberTableViewController.xib in Resources */,
+				2DAF45132561871700D8584A /* EmergencyViewController.xib in Resources */,
 				2DB8A9A3256040FA00118B9E /* NumbersTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,8 +310,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DA8DBD3253F472C00AA8000 /* NumberTableViewPresenter.swift in Sources */,
+				2DAF45122561871700D8584A /* EmergencyViewController.swift in Sources */,
 				2DA8DBEA253F491800AA8000 /* NumberService.swift in Sources */,
 				2DA8DB9C253F465000AA8000 /* AppDelegate.swift in Sources */,
+				2DAF451F2561A24D00D8584A /* HalfSizePresentationController.swift in Sources */,
 				2DA8DB9E253F465000AA8000 /* SceneDelegate.swift in Sources */,
 				2DB8A9A2256040FA00118B9E /* NumbersTableViewCell.swift in Sources */,
 				2DA8DBDC253F473A00AA8000 /* NumberTableViewController.swift in Sources */,

@@ -22,6 +22,10 @@ final class NumberTableViewController: UITableViewController {
         }
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     init(presenter: NumberTableViewPresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: String(describing: NumberTableViewController.self), bundle: nil)
@@ -29,6 +33,18 @@ final class NumberTableViewController: UITableViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+
+        let touch = touches.first
+        guard let location = touch?.location(in: self.view) else { return }
+        if !view.frame.contains(location) {
+            print("Tapped outside the view")
+        } else {
+            print("Tapped inside the view")
+        }
     }
     
     override func viewDidLoad() {
@@ -60,10 +76,25 @@ final class NumberTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100.0
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = EmergencyViewController()
+        vc.transitioningDelegate = self
+        vc.modalPresentationStyle = UIModalPresentationStyle.custom
+        
+        self.present(vc, animated: true, completion: nil)
+        
+    }
 }
 
 extension NumberTableViewController: NumberTableViewControllerProtocol {
     func setListNumber(list: [Numbers]) {
         listNumbers = list
+    }
+}
+
+extension NumberTableViewController : UIViewControllerTransitioningDelegate {
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return HalfSizePresentationController(presentedViewController: presented, presenting: presenting)
     }
 }
