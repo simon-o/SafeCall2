@@ -9,12 +9,23 @@ import UIKit
 
 protocol NumbersTableViewCellProtocol {
     func set(countryName: String)
+    func set(codeName: String)
 }
 
 class NumbersTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var countryLabel: UILabel!
+    @IBOutlet weak var codeLabel: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        containerView.layer.cornerRadius = 10
+        containerView.backgroundColor = UIColor(named: "NumbersListCell")
+        contentView.backgroundColor = UIColor(named: "NumbersListBackgroundTavleView")
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -25,6 +36,10 @@ class NumbersTableViewCell: UITableViewCell {
 
 extension NumbersTableViewCell: NumbersTableViewCellProtocol {
     func set(countryName: String) {
-        self.textLabel?.text = countryName
+        countryLabel.text = countryName
+    }
+    
+    func set(codeName: String) {
+        codeLabel.text = codeName
     }
 }

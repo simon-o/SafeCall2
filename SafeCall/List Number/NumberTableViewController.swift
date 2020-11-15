@@ -34,8 +34,9 @@ final class NumberTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(NumbersTableViewCell.self, forCellReuseIdentifier: "CellID")
-
+        tableView.register(UINib(nibName: String(describing: NumbersTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: NumbersTableViewCell.self))
+        tableView.backgroundColor = UIColor(named: "NumbersListBackgroundTavleView")
+        
         presenter.attach(VC: self)
         presenter.viewDidLoad()
         
@@ -51,9 +52,13 @@ final class NumberTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CellID") as? NumbersTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: NumbersTableViewCell.self)) as? NumbersTableViewCell else { return UITableViewCell() }
         presenter.setUp(cell: cell, index: indexPath.row)
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100.0
     }
 }
 

@@ -30,6 +30,7 @@ extension NumberTableViewPresenter: NumberTableViewPresenterProtocol {
     func setUp(cell: NumbersTableViewCellProtocol, index: Int) {
         if let list = listNumbers {
             cell.set(countryName: list[index].Country.Name)
+            cell.set(codeName: list[index].Country.ISOCode + " / " + list[index].Country.ISONumeric)
         }
     }
     
