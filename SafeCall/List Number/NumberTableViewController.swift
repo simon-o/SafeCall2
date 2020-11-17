@@ -56,6 +56,8 @@ final class NumberTableViewController: UITableViewController {
         searchController.searchBar.placeholder = "Search Country"
         self.tableView.tableHeaderView = searchController.searchBar
         definesPresentationContext = true
+        
+        
     }
 
     // MARK: - Table view data source
@@ -64,12 +66,12 @@ final class NumberTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.getCount(isFiltering: isFiltering)
+        return presenter.getCount()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: NumbersTableViewCell.self)) as? NumbersTableViewCell else { return UITableViewCell() }
-        presenter.setUp(cell: cell, index: indexPath.row, isFiltering: isFiltering)
+        presenter.setUp(cell: cell, index: indexPath.row)
         return cell
     }
     
@@ -101,9 +103,9 @@ extension NumberTableViewController : UIViewControllerTransitioningDelegate {
 
 extension NumberTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        if let searchBar = searchController.searchBar {
-            presenter.filterContentForSearchText(searchBar.text)
-            tableView.reloadData()
-        }
+        let searchBar = searchController.searchBar
+        presenter.filterContentForSearchText(searchBar.text ?? "")
+        tableView.reloadData()
+        
     }
 }

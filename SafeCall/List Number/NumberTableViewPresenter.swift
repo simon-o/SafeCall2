@@ -11,9 +11,9 @@ import Combine
 protocol NumberTableViewPresenterProtocol {
     func attach(VC: NumberTableViewControllerProtocol)
     func viewDidLoad()
-    func setUp(cell: NumbersTableViewCellProtocol, index: Int, isFiltering: Bool)
+    func setUp(cell: NumbersTableViewCellProtocol, index: Int)
     func filterContentForSearchText(_ searchText: String)
-    func getCount(isFiltering: Bool) -> Int
+    func getCount() -> Int
 }
 
 final class NumberTableViewPresenter {
@@ -30,21 +30,19 @@ final class NumberTableViewPresenter {
 }
 
 extension NumberTableViewPresenter: NumberTableViewPresenterProtocol {
-    func getCount(isFiltering: Bool) -> Int{
-        return isFiltering ? filteredCountry.count : listNumbers?.count ?? 0
+    func getCount() -> Int{
+        return filteredCountry.count
     }
     
-    func setUp(cell: NumbersTableViewCellProtocol, index: Int, isFiltering: Bool) {
-        let tmpList = isFiltering ? filteredCountry : listNumbers
-        if let list = tmpList {
-            cell.set(countryName: list[index].Country.Name)
-            cell.set(codeName: list[index].Country.ISOCode + " / " + list[index].Country.ISONumeric)
-        }
+    func setUp(cell: NumbersTableViewCellProtocol, index: Int) {
+            cell.set(countryName: filteredCountry[index].Country.Name)
+            cell.set(codeName: filteredCountry[index].Country.ISOCode + " / " + filteredCountry[index].Country.ISONumeric)
     }
     
     func viewDidLoad() {
         let anyCancellable = subject.sink(receiveValue: { value in
             self.listNumbers = value
+            self.filteredCountry = value
             self.vc?.setListNumber(list: value)
         })
         
@@ -56,6 +54,12 @@ extension NumberTableViewPresenter: NumberTableViewPresenterProtocol {
     }
     
     func filterContentForSearchText(_ searchText: String) {
+        if searchText.isEmpty {
+            if let list = listNumbers {
+                filteredCountry = list
+                return
+            }
+        }
         if let list = listNumbers {
             filteredCountry = list.filter { (numbers: Numbers) -> Bool in
                 return numbers.Country.Name.lowercased().contains(searchText.lowercased())
