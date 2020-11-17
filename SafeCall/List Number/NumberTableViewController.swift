@@ -13,6 +13,10 @@ protocol NumberTableViewControllerProtocol: NSObject {
 
 final class NumberTableViewController: UITableViewController {
     private let presenter: NumberTableViewPresenterProtocol
+    private let searchController = UISearchController(searchResultsController: nil)
+    var isFiltering: Bool {
+      return searchController.isActive && !(searchController.searchBar.text?.isEmpty ?? true)
+    }
     @Published private var listNumbers: [Numbers]? {
         didSet {
             // To improve that I should try to do the assign in the cell directly on the label.text
@@ -35,27 +39,23 @@ final class NumberTableViewController: UITableViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-
-        let touch = touches.first
-        guard let location = touch?.location(in: self.view) else { return }
-        if !view.frame.contains(location) {
-            print("Tapped outside the view")
-        } else {
-            print("Tapped inside the view")
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUp()
+        presenter.attach(VC: self)
+        presenter.viewDidLoad()
+    }
+    
+    private func setUp() {
         tableView.register(UINib(nibName: String(describing: NumbersTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: NumbersTableViewCell.self))
         tableView.backgroundColor = UIColor(named: "NumbersListBackgroundTavleView")
         
-        presenter.attach(VC: self)
-        presenter.viewDidLoad()
-        
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Country"
+        self.tableView.tableHeaderView = searchController.searchBar
+        definesPresentationContext = true
     }
 
     // MARK: - Table view data source
@@ -64,12 +64,12 @@ final class NumberTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listNumbers?.count ?? 0
+        return presenter.getCount(isFiltering: isFiltering)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: NumbersTableViewCell.self)) as? NumbersTableViewCell else { return UITableViewCell() }
-        presenter.setUp(cell: cell, index: indexPath.row)
+        presenter.setUp(cell: cell, index: indexPath.row, isFiltering: isFiltering)
         return cell
     }
     
@@ -96,5 +96,14 @@ extension NumberTableViewController: NumberTableViewControllerProtocol {
 extension NumberTableViewController : UIViewControllerTransitioningDelegate {
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         return HalfSizePresentationController(presentedViewController: presented, presenting: presenting)
+    }
+}
+
+extension NumberTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchBar = searchController.searchBar {
+            presenter.filterContentForSearchText(searchBar.text)
+            tableView.reloadData()
+        }
     }
 }
