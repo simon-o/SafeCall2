@@ -23,36 +23,45 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="5z0-Oc-iEH">
-                    <rect key="frame" x="15" y="74" width="384" height="33"/>
+                    <rect key="frame" x="15" y="74" width="384" height="65"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdT-dw-O7o">
-                            <rect key="frame" x="0.0" y="0.0" width="118.5" height="33"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdT-dw-O7o">
+                            <rect key="frame" x="0.0" y="0.0" width="118.5" height="65"/>
                             <color key="backgroundColor" name="ButtonColor2"/>
-                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
                             <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
-                            <state key="normal" title="FIRE">
+                            <state key="normal" title="FIRE" image="firefighter">
                                 <color key="titleColor" name="MainText"/>
                             </state>
+                            <connections>
+                                <action selector="firePressed:" destination="-1" eventType="touchUpInside" id="SWk-pc-gfO"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Epp-dM-9Cd">
-                            <rect key="frame" x="132.5" y="0.0" width="119" height="33"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Epp-dM-9Cd">
+                            <rect key="frame" x="132.5" y="0.0" width="119" height="65"/>
                             <color key="backgroundColor" name="ButtonColor2"/>
-                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
                             <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
-                            <state key="normal" title="HEALTH">
+                            <state key="normal" title="HEALTH" image="ambulance">
                                 <color key="titleColor" name="MainText"/>
                             </state>
+                            <connections>
+                                <action selector="ambulancePressed:" destination="-1" eventType="touchUpInside" id="gTb-eI-uei"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSA-6O-Riy">
-                            <rect key="frame" x="265.5" y="0.0" width="118.5" height="33"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSA-6O-Riy">
+                            <rect key="frame" x="265.5" y="0.0" width="118.5" height="65"/>
                             <color key="backgroundColor" name="ButtonColor2"/>
-                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
                             <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
-                            <state key="normal" title="POLICE">
+                            <state key="normal" title="POLICE" image="police">
                                 <color key="titleColor" name="MainText"/>
                             </state>
+                            <connections>
+                                <action selector="policePressed:" destination="-1" eventType="touchUpInside" id="3vg-Hc-Lgx"/>
+                            </connections>
                         </button>
                     </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="65" id="KGy-80-aBO"/>
+                    </constraints>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zzp-YV-Mpo">
                     <rect key="frame" x="389" y="-10" width="30" height="30"/>
@@ -83,11 +92,14 @@
         </view>
     </objects>
     <resources>
+        <image name="ambulance" width="512" height="512"/>
+        <image name="firefighter" width="512" height="512"/>
+        <image name="police" width="512" height="512"/>
         <namedColor name="ButtonColor2">
             <color red="0.37299999594688416" green="0.70899999141693115" blue="0.97699999809265137" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="EmergencyViewB">
-            <color red="0.45251935720000003" green="0.32354593279999999" blue="0.96475702519999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.45300000905990601" green="0.32400000095367432" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="MainText">
             <color red="1" green="0.99599999189376831" blue="0.99599999189376831" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

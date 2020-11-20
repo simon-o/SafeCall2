@@ -8,7 +8,7 @@
 import UIKit
 
 protocol NumberTableViewControllerProtocol: NSObject {
-    func setListNumber(list: [Numbers])
+    func reloadData()
 }
 
 final class NumberTableViewController: UITableViewController {
@@ -16,14 +16,6 @@ final class NumberTableViewController: UITableViewController {
     private let searchController = UISearchController(searchResultsController: nil)
     var isFiltering: Bool {
       return searchController.isActive && !(searchController.searchBar.text?.isEmpty ?? true)
-    }
-    @Published private var listNumbers: [Numbers]? {
-        didSet {
-            // To improve that I should try to do the assign in the cell directly on the label.text
-            //https://swifthowto.blogspot.com/2019/11/use-swift-combine-to-load.html
-            // work only for thing that needs to be downloaded after the list because we need the numbers of product to know the number of cell to diplay first 
-            self.tableView.reloadData()
-        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -62,8 +54,27 @@ final class NumberTableViewController: UITableViewController {
         searchController.searchBar.tintColor = UIColor(named: "MainText")
         searchController.searchBar.barTintColor = UIColor(named: "NumbersListCell")
         
-        self.tableView.tableHeaderView = searchController.searchBar
+        
+        let button = UIButton()
+        button.setTitle("Add Emergency Contact", for: .normal)
+        button.frame = CGRect(x: searchController.searchBar.frame.width/2 - 220/2, y: searchController.searchBar.frame.height + 6, width: 220, height: 40)
+        button.layer.cornerRadius = 10
+        button.backgroundColor = .red
+        button.tintColor = .white
+        button.addTarget(self, action: #selector(addEmergency), for: .touchUpInside)
+        
+        let headerView = UIView()
+        headerView.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 100)
+        
+        headerView.addSubview(searchController.searchBar)
+        headerView.addSubview(button)
+        
+        self.tableView.tableHeaderView = headerView
         definesPresentationContext = true
+    }
+    
+    @objc private func addEmergency() {
+        print("lol")
     }
 
     // MARK: - Table view data source
@@ -86,18 +97,18 @@ final class NumberTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = EmergencyViewController()
-        vc.transitioningDelegate = self
-        vc.modalPresentationStyle = UIModalPresentationStyle.custom
-        
-        self.present(vc, animated: true, completion: nil)
-        
+        searchController.dismiss(animated: true) {
+            let vc = self.presenter.setUpEmergencyView(index: indexPath.row)
+            vc.transitioningDelegate = self
+            vc.modalPresentationStyle = UIModalPresentationStyle.custom
+            self.present(vc, animated: true, completion: nil)
+        }
     }
 }
 
 extension NumberTableViewController: NumberTableViewControllerProtocol {
-    func setListNumber(list: [Numbers]) {
-        listNumbers = list
+    func reloadData() {
+        tableView.reloadData()
     }
 }
 

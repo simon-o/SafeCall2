@@ -14,6 +14,7 @@ protocol NumberTableViewPresenterProtocol {
     func setUp(cell: NumbersTableViewCellProtocol, index: Int)
     func filterContentForSearchText(_ searchText: String)
     func getCount() -> Int
+    func setUpEmergencyView(index: Int) -> EmergencyViewController
 }
 
 final class NumberTableViewPresenter {
@@ -30,6 +31,13 @@ final class NumberTableViewPresenter {
 }
 
 extension NumberTableViewPresenter: NumberTableViewPresenterProtocol {
+    func setUpEmergencyView(index: Int) -> EmergencyViewController {
+        return EmergencyViewController(country: filteredCountry[index].Country.Name,
+                                       ambulance: filteredCountry[index].Ambulance,
+                                       fire: filteredCountry[index].Fire,
+                                       police: filteredCountry[index].Police)
+    }
+    
     func getCount() -> Int{
         return filteredCountry.count
     }
@@ -43,7 +51,7 @@ extension NumberTableViewPresenter: NumberTableViewPresenterProtocol {
         let anyCancellable = subject.sink(receiveValue: { value in
             self.listNumbers = value
             self.filteredCountry = value
-            self.vc?.setListNumber(list: value)
+            self.vc?.reloadData()
         })
         
         service.fetchNumbersList(file: "listPhone", subject: subject)
