@@ -51,13 +51,19 @@ final class NumberTableViewController: UITableViewController {
         tableView.register(UINib(nibName: String(describing: NumbersTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: NumbersTableViewCell.self))
         tableView.backgroundColor = UIColor(named: "NumbersListBackgroundTavleView")
         
+        let backgroundView = UIView.init(frame: tableView.bounds)
+        backgroundView.backgroundColor = UIColor(named: "NumbersListBackgroundTavleView")
+        tableView.backgroundView = backgroundView
+        
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Country"
+        searchController.searchBar.searchTextField.textColor = UIColor(named: "SecondText")
+        searchController.searchBar.tintColor = UIColor(named: "MainText")
+        searchController.searchBar.barTintColor = UIColor(named: "NumbersListCell")
+        
         self.tableView.tableHeaderView = searchController.searchBar
         definesPresentationContext = true
-        
-        
     }
 
     // MARK: - Table view data source

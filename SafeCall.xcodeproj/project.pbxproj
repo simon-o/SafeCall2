@@ -117,8 +117,9 @@
 			children = (
 				2DA8DB9B253F465000AA8000 /* AppDelegate.swift */,
 				2DA8DB9D253F465000AA8000 /* SceneDelegate.swift */,
-				2DA8DBD1253F470000AA8000 /* List Number */,
+				2DAF451E2561A24D00D8584A /* HalfSizePresentationController.swift */,
 				2DAF4517256187B500D8584A /* Emergency view */,
+				2DA8DBD1253F470000AA8000 /* List Number */,
 				2DA8DBA4253F465A00AA8000 /* Assets.xcassets */,
 				2DA8DBE4253F487700AA8000 /* listPhone.json */,
 				2DA8DBA6253F465A00AA8000 /* LaunchScreen.storyboard */,
@@ -148,9 +149,9 @@
 		2DA8DBD1253F470000AA8000 /* List Number */ = {
 			isa = PBXGroup;
 			children = (
+				2DB8A9A72560415A00118B9E /* Cell */,
 				2DA8DBDA253F473A00AA8000 /* NumberTableViewController.swift */,
 				2DA8DBD2253F472C00AA8000 /* NumberTableViewPresenter.swift */,
-				2DB8A9A72560415A00118B9E /* Cell */,
 				2DA8DBE9253F491800AA8000 /* NumberService.swift */,
 				2DA8DBDB253F473A00AA8000 /* NumberTableViewController.xib */,
 			);
@@ -162,7 +163,6 @@
 			children = (
 				2DAF45102561871700D8584A /* EmergencyViewController.swift */,
 				2DAF45112561871700D8584A /* EmergencyViewController.xib */,
-				2DAF451E2561A24D00D8584A /* HalfSizePresentationController.swift */,
 			);
 			path = "Emergency view";
 			sourceTree = "<group>";
