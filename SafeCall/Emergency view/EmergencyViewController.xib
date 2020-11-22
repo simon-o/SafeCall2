@@ -11,6 +11,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EmergencyViewController" customModule="SafeCall" customModuleProvider="target">
             <connections>
                 <outlet property="closeButton" destination="zzp-YV-Mpo" id="sZF-9y-rnC"/>
+                <outlet property="contact1" destination="RkF-Om-Ul8" id="0zd-QG-2bW"/>
+                <outlet property="contact2" destination="eki-nz-jW6" id="YE5-u4-c66"/>
                 <outlet property="fireButton" destination="fdT-dw-O7o" id="05u-4L-IaW"/>
                 <outlet property="healthButton" destination="Epp-dM-9Cd" id="9u8-Wr-EcJ"/>
                 <outlet property="policeButton" destination="VSA-6O-Riy" id="xgN-Ey-g03"/>
@@ -78,15 +80,45 @@
                         <action selector="closePressed:" destination="-1" eventType="touchUpInside" id="FXC-Wo-gec"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eki-nz-jW6">
+                    <rect key="frame" x="100" y="231" width="214" height="32"/>
+                    <color key="backgroundColor" name="ButtonColor2"/>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
+                    <state key="normal" title="Button">
+                        <color key="titleColor" name="MainText"/>
+                    </state>
+                    <connections>
+                        <action selector="contact2Pressed:" destination="-1" eventType="touchUpInside" id="4jJ-Nr-VZU"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RkF-Om-Ul8">
+                    <rect key="frame" x="100" y="169" width="214" height="32"/>
+                    <color key="backgroundColor" name="ButtonColor2"/>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
+                    <state key="normal" title="Button">
+                        <color key="titleColor" name="MainText"/>
+                    </state>
+                    <connections>
+                        <action selector="contact1Pressed:" destination="-1" eventType="touchUpInside" id="Olh-sW-WmY"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="EmergencyViewB"/>
             <constraints>
                 <constraint firstItem="5z0-Oc-iEH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="1um-bJ-BLI"/>
+                <constraint firstItem="RkF-Om-Ul8" firstAttribute="top" secondItem="5z0-Oc-iEH" secondAttribute="bottom" constant="30" id="85V-lc-pb0"/>
+                <constraint firstItem="eki-nz-jW6" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="CqQ-1H-1qf"/>
+                <constraint firstItem="eki-nz-jW6" firstAttribute="top" secondItem="RkF-Om-Ul8" secondAttribute="bottom" constant="30" id="Gs4-mH-z9e"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eki-nz-jW6" secondAttribute="trailing" constant="100" id="Q34-vD-Xiw"/>
                 <constraint firstItem="5z0-Oc-iEH" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="TKf-Tz-y6h"/>
                 <constraint firstItem="zzp-YV-Mpo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="-10" id="TUl-FB-Jh1"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5z0-Oc-iEH" secondAttribute="trailing" constant="15" id="Yet-gS-l1E"/>
                 <constraint firstItem="zzp-YV-Mpo" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="5" id="eZZ-Jm-U0V"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="RkF-Om-Ul8" secondAttribute="trailing" constant="100" id="iC8-6p-36E"/>
+                <constraint firstItem="eki-nz-jW6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="100" id="iju-Sq-KbQ"/>
+                <constraint firstItem="RkF-Om-Ul8" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="o0N-Pr-72l"/>
+                <constraint firstItem="RkF-Om-Ul8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="100" id="pnQ-y8-b6Q"/>
             </constraints>
             <point key="canvasLocation" x="141" y="121"/>
         </view>

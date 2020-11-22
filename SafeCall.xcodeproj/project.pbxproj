@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D253D7C256A8FB3007258B4 /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D253D7A256A8FB3007258B4 /* AddContactViewController.swift */; };
+		2D253D7D256A8FB3007258B4 /* AddContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D253D7B256A8FB3007258B4 /* AddContactViewController.xib */; };
+		2D253D86256A8FEB007258B4 /* AddContactPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D253D85256A8FEB007258B4 /* AddContactPresenter.swift */; };
 		2DA8DB9C253F465000AA8000 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA8DB9B253F465000AA8000 /* AppDelegate.swift */; };
 		2DA8DB9E253F465000AA8000 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA8DB9D253F465000AA8000 /* SceneDelegate.swift */; };
 		2DA8DBA5253F465A00AA8000 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DA8DBA4253F465A00AA8000 /* Assets.xcassets */; };
@@ -43,6 +46,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D253D7A256A8FB3007258B4 /* AddContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
+		2D253D7B256A8FB3007258B4 /* AddContactViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddContactViewController.xib; sourceTree = "<group>"; };
+		2D253D85256A8FEB007258B4 /* AddContactPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactPresenter.swift; sourceTree = "<group>"; };
 		2DA8DB98253F465000AA8000 /* SafeCall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafeCall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DA8DB9B253F465000AA8000 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DA8DB9D253F465000AA8000 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +98,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D253D81256A8FD5007258B4 /* Add Contact */ = {
+			isa = PBXGroup;
+			children = (
+				2D253D7A256A8FB3007258B4 /* AddContactViewController.swift */,
+				2D253D85256A8FEB007258B4 /* AddContactPresenter.swift */,
+				2D253D7B256A8FB3007258B4 /* AddContactViewController.xib */,
+			);
+			path = "Add Contact";
+			sourceTree = "<group>";
+		};
 		2DA8DB8F253F465000AA8000 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +134,7 @@
 				2DA8DB9B253F465000AA8000 /* AppDelegate.swift */,
 				2DA8DB9D253F465000AA8000 /* SceneDelegate.swift */,
 				2DAF451E2561A24D00D8584A /* HalfSizePresentationController.swift */,
+				2D253D81256A8FD5007258B4 /* Add Contact */,
 				2DAF4517256187B500D8584A /* Emergency view */,
 				2DA8DBD1253F470000AA8000 /* List Number */,
 				2DA8DBA4253F465A00AA8000 /* Assets.xcassets */,
@@ -283,6 +300,7 @@
 				2DA8DBA8253F465A00AA8000 /* LaunchScreen.storyboard in Resources */,
 				2DA8DBA5253F465A00AA8000 /* Assets.xcassets in Resources */,
 				2DA8DBDD253F473A00AA8000 /* NumberTableViewController.xib in Resources */,
+				2D253D7D256A8FB3007258B4 /* AddContactViewController.xib in Resources */,
 				2DAF45132561871700D8584A /* EmergencyViewController.xib in Resources */,
 				2DB8A9A3256040FA00118B9E /* NumbersTableViewCell.xib in Resources */,
 			);
@@ -312,6 +330,8 @@
 				2DA8DBD3253F472C00AA8000 /* NumberTableViewPresenter.swift in Sources */,
 				2DAF45122561871700D8584A /* EmergencyViewController.swift in Sources */,
 				2DA8DBEA253F491800AA8000 /* NumberService.swift in Sources */,
+				2D253D86256A8FEB007258B4 /* AddContactPresenter.swift in Sources */,
+				2D253D7C256A8FB3007258B4 /* AddContactViewController.swift in Sources */,
 				2DA8DB9C253F465000AA8000 /* AppDelegate.swift in Sources */,
 				2DAF451F2561A24D00D8584A /* HalfSizePresentationController.swift in Sources */,
 				2DA8DB9E253F465000AA8000 /* SceneDelegate.swift in Sources */,

@@ -53,7 +53,7 @@ final class NumberTableViewController: UITableViewController {
         searchController.searchBar.searchTextField.textColor = UIColor(named: "SecondText")
         searchController.searchBar.tintColor = UIColor(named: "MainText")
         searchController.searchBar.barTintColor = UIColor(named: "NumbersListCell")
-        
+    
         
         let button = UIButton()
         button.setTitle("Add Emergency Contact", for: .normal)
@@ -74,7 +74,12 @@ final class NumberTableViewController: UITableViewController {
     }
     
     @objc private func addEmergency() {
-        print("lol")
+        let presenterAdd = AddContactPresenter()
+        let vc = AddContactViewController(presenter: presenterAdd)
+        presenterAdd.attach(VC: vc)
+        
+        
+        self.present(vc, animated: true, completion: nil)
     }
 
     // MARK: - Table view data source

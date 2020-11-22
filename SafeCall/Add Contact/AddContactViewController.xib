@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddContactViewController" customModule="SafeCall" customModuleProvider="target">
+            <connections>
+                <outlet property="label1" destination="Obv-dM-bIl" id="uVL-d2-Oku"/>
+                <outlet property="label2" destination="r6X-Rg-BAB" id="YxW-N8-JwJ"/>
+                <outlet property="name1" destination="r1k-7z-sjP" id="jTl-46-VQP"/>
+                <outlet property="name2" destination="0kZ-WE-tJM" id="Um6-Sh-EBD"/>
+                <outlet property="phone1" destination="Lko-Pw-2nM" id="Dto-6T-UoO"/>
+                <outlet property="phone2" destination="Ceb-HG-koq" id="4CP-QE-Rm1"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Obv-dM-bIl">
+                    <rect key="frame" x="20" y="52" width="44.5" height="20"/>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
+                    <color key="textColor" name="MainText"/>
+                    <color key="highlightedColor" name="MainText"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lko-Pw-2nM">
+                    <rect key="frame" x="20" y="126" width="374" height="34"/>
+                    <color key="backgroundColor" name="EmergencyViewB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="phonePad" textContentType="tel"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6X-Rg-BAB">
+                    <rect key="frame" x="20" y="180" width="44.5" height="20"/>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
+                    <color key="textColor" name="MainText"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ceb-HG-koq">
+                    <rect key="frame" x="20" y="254" width="374" height="34"/>
+                    <color key="backgroundColor" name="EmergencyViewB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="phonePad" textContentType="tel"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="fvfvdfvdfvdf" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r1k-7z-sjP">
+                    <rect key="frame" x="20" y="82" width="319" height="34"/>
+                    <color key="backgroundColor" name="EmergencyViewB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0kZ-WE-tJM">
+                    <rect key="frame" x="20" y="210" width="319" height="34"/>
+                    <color key="backgroundColor" name="EmergencyViewB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                </textField>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="NumbersListCell"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ceb-HG-koq" secondAttribute="trailing" constant="20" id="4al-rO-4pN"/>
+                <constraint firstItem="r1k-7z-sjP" firstAttribute="top" secondItem="Obv-dM-bIl" secondAttribute="bottom" constant="10" id="6d3-5p-fu5"/>
+                <constraint firstItem="Ceb-HG-koq" firstAttribute="top" secondItem="0kZ-WE-tJM" secondAttribute="bottom" constant="10" id="9Nw-ji-IYx"/>
+                <constraint firstItem="r6X-Rg-BAB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="PZF-aB-Lku"/>
+                <constraint firstItem="Ceb-HG-koq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="XQt-Xq-T3F"/>
+                <constraint firstItem="0kZ-WE-tJM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="ZbG-Jm-x6a"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="0kZ-WE-tJM" secondAttribute="trailing" constant="75" id="iJa-G2-waV"/>
+                <constraint firstItem="0kZ-WE-tJM" firstAttribute="top" secondItem="r6X-Rg-BAB" secondAttribute="bottom" constant="10" id="jZB-jf-JrH"/>
+                <constraint firstItem="Obv-dM-bIl" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="kKF-YA-bh3"/>
+                <constraint firstItem="Lko-Pw-2nM" firstAttribute="top" secondItem="r1k-7z-sjP" secondAttribute="bottom" constant="10" id="lSb-Rb-DqG"/>
+                <constraint firstItem="Lko-Pw-2nM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="mnd-L9-YYU"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Lko-Pw-2nM" secondAttribute="trailing" constant="20" id="mrX-WF-fRR"/>
+                <constraint firstItem="r1k-7z-sjP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="rB1-w7-exv"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="r1k-7z-sjP" secondAttribute="trailing" constant="75" id="rt4-xC-e43"/>
+                <constraint firstItem="r6X-Rg-BAB" firstAttribute="top" secondItem="Lko-Pw-2nM" secondAttribute="bottom" constant="20" id="wAg-Ry-Fip"/>
+                <constraint firstItem="Obv-dM-bIl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="zmA-Ux-BEQ"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="54.910714285714285"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="EmergencyViewB">
+            <color red="0.45300000905990601" green="0.32400000095367432" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="MainText">
+            <color red="1" green="0.99599999189376831" blue="0.99599999189376831" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="NumbersListCell">
+            <color red="0.1379999965429306" green="0.12700000405311584" blue="0.24699999392032623" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>
