@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 protocol NumberTableViewControllerProtocol: NSObject {
     func reloadData()
@@ -14,9 +15,11 @@ protocol NumberTableViewControllerProtocol: NSObject {
 final class NumberTableViewController: UITableViewController {
     private let presenter: NumberTableViewPresenterProtocol
     private let searchController = UISearchController(searchResultsController: nil)
-    var isFiltering: Bool {
+    private var isFiltering: Bool {
       return searchController.isActive && !(searchController.searchBar.text?.isEmpty ?? true)
     }
+    private var locManager = CLLocationManager()
+    
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -34,12 +37,22 @@ final class NumberTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        locManager.requestWhenInUseAuthorization()
+        
         setUp()
         presenter.attach(VC: self)
         presenter.viewDidLoad()
     }
     
     private func setUp() {
+        var currentLocation: CLLocation!
+
+        if
+           CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
+           CLLocationManager.authorizationStatus() ==  .authorizedAlways
+        {
+            findCountry(location: locManager.location)
+        }
         tableView.register(UINib(nibName: String(describing: NumbersTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: NumbersTableViewCell.self))
         tableView.backgroundColor = UIColor(named: "NumbersListBackgroundTavleView")
         
@@ -108,6 +121,22 @@ final class NumberTableViewController: UITableViewController {
             vc.modalPresentationStyle = UIModalPresentationStyle.custom
             self.present(vc, animated: true, completion: nil)
         }
+    }
+    
+    private func findCountry(location: CLLocation) {
+        let geoCoder = CLGeocoder()
+        
+        geoCoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, _) -> Void in
+            placemarks?.forEach { (placemark) in
+                if let countryCode = placemark.isoCountryCode {
+                    putFirstCountry(code: countryCode)
+                }
+            }
+        })
+    }
+    
+    private func putFirstCountry(code: String) {
+       
     }
 }
 
